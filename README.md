@@ -1,10 +1,10 @@
-[![](https://images.microbadger.com/badges/image/flashspys/nginx-static.svg)](https://microbadger.com/images/flashspys/nginx-static "Get your own image badge on microbadger.com") ![](https://img.shields.io/docker/pulls/flashspys/nginx-static.svg)
+[![](https://images.microbadger.com/badges/image/superd22/nginx-static.svg)](https://microbadger.com/images/Superd22/nginx-static "Get your own image badge on microbadger.com") ![](https://img.shields.io/docker/pulls/superd22/nginx-static.svg)
 
 # Super Lightweight nginx Image
 
-`docker run -v /srv/web:/static -p 8080:80 flashspys/nginx-static`
+`docker run -v /srv/web:/static -p 8080:80 superd22/nginx-static`
 
-This command exposes an nginx server on port 8080 which serves the folder `/srv/web` from the host.
+This command exposes an nginx server on port 8080 which serves the folder `/srv/web` from the host. It redirect every unknown url to index.html, making it ideal for SPA.
 
 The image is roughly half the size of the official nginx image and can only be used for static file serving.
 
@@ -18,7 +18,7 @@ To serve your static files over HTTPS you must use another reverse proxy. We rec
 version: '3'
 services:
   example.org:
-    image: flashspys/nginx-static
+    image: superd22/nginx-static
     container_name: example.org
     ports:
       - 8080:80
@@ -33,7 +33,7 @@ To use nginx-static with træfik add an entry to your services in a docker-compo
 
 ```
   example.org:
-    image: flashspys/nginx-static
+    image: superd22/nginx-static
     container_name: example.org
     networks:
       - web
